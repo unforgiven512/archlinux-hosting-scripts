@@ -1,0 +1,16 @@
+###
+# server.conf.sample
+###
+# This is a sample configuration. It contains example values, as well as commentation to help explain
+# all of the possible values that can be used.
+#
+# Please make a copy of this as 'server.conf' and change the values according to your setup.
+###
+
+## Server Type
+# Name the type of web server (httpd) you are using here.
+# Possible values:
+# nginx
+# (apache)
+# (lighttpd)
+server_type=nginx

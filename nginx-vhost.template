@@ -1,4 +1,4 @@
-site_conf_file_data="# nginx + php virtualhost site configuration template
+vhost_conf_file_data="# nginx + php virtualhost site configuration template
 # additional configuration that is not provided by the initial setup script may be necessary
 
-# site: ${site_hostname}"
+# site: ${vhost_hostname}"

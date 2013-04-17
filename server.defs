@@ -1,0 +1,19 @@
+###
+# server.defs
+###
+# This file contains definitions for the various server types.
+# It will populate the appropriate constants according to your set configuration in server.conf
+#
+# NOTE: 'server.conf' *NEEDS* to be sourced *BEFORE* this file, otherwise things will break in a
+#       spectacular way.
+###
+
+if [ ${server_type} == "nginx" ]; then
+	$SERVER_CONF_DIR="/etc/nginx"
+	$SERVER_VHOST_CONF_DIR="/etc/nginx/vhosts-available"
+#elif [ ${server_type} == "apache" ]; then
+#	$SERVER_CONF_DIR="/etc/httpd/conf"
+#	$SERVER_VHOST_CONF_DIR="/etc/httpd/conf/vhosts-available"
+#elif [ ${server_type} == "lighttpd" ]; then
+#	STUFF
+fi
