@@ -1,0 +1,17 @@
+/
+|
++-etc/
+|
+|
+|
++-srv/
+|    |
+|    +-http/
+|          |
+|          +-${username} - NOTE: use `setfacl -m default:group:http:rwx` to 
+|                                make group 'http' rwx perms 'stick'
+|
+|
++-var/
+|    |
+|    +-log/
