@@ -8,12 +8,37 @@
 #       spectacular way.
 ###
 
+
+### [S] GENERIC DEFINITIONS ###
+## NOTE: These need to be set conditionally, based upon which httpd your system 
+##       will be running.
+
+# XXX: nginx
 if [ ${server_type} == "nginx" ]; then
 	$SERVER_CONF_DIR="/etc/nginx"
 	$SERVER_VHOST_CONF_DIR="/etc/nginx/vhosts-available"
+
+# XXX: apache
 #elif [ ${server_type} == "apache" ]; then
 #	$SERVER_CONF_DIR="/etc/httpd/conf"
 #	$SERVER_VHOST_CONF_DIR="/etc/httpd/conf/vhosts-available"
+
+# XXX: lighttpd
 #elif [ ${server_type} == "lighttpd" ]; then
 #	STUFF
 fi
+
+### [E] GENERIC DEFINITIONS ###
+
+### [S] nginx DEFINITIONS ###
+NGINX_CONFIG_FILE="/etc/nginx/nginx.conf"
+
+### [E] nginx DEFINITIONS ###
+
+### [S] apache DEFINITIONS ###
+
+### [E] apache DEFINITIONS ###
+
+### [S] lighttpd DEFINITIONS ###
+
+### [E] lightttpd DEFINITIONS ###
