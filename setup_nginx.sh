@@ -30,13 +30,13 @@ http {
 	## includes ##
 	include			/etc/nginx/conf.d/*.conf;
 	include			/etc/nginx/includes/*;
-	include			/etc/nginx/vhosts-enabled/*;
+	include			/etc/nginx/sites-enabled/*;
 }
 EOF
 }
 
-create_default_vhost() { ## function to create a default virtual host, and link it to the enabled folder
-cat >> /etc/nginx/vhosts-available/default < EOF
+create_default_site() { ## function to create a default virtual host, and link it to the enabled folder
+cat >> /etc/nginx/sites-available/default < EOF
 server {
   listen 80 default_server;
 
@@ -57,12 +57,19 @@ server {
 }
 EOF
 
-ln -s /etc/nginx/vhosts-available/default /etc/nginx/vhosts-enabled/000-default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/000-default
 }
 
 create_folder_structure() { ## function to create folder structure for nginx-based hosting
-	mkdir -p "/etc/nginx/vhosts-available"
-	mkdir -p "/etc/nginx/vhosts-enabled"
+	mkdir -p "/etc/nginx/sites-available"
+	mkdir -p "/etc/nginx/sites-enabled"
 	mkdir -p "/etc/nginx/includes"
 	mkdir -p "/etc/nginx/conf.d"
+}
+
+echo_post_install_info() { ## provide the user with some useful info/tips
+	echo "The setup process for nginx has successfully completed."
+	echo ""
+	echo "It is recommended to install the 'nginx_ensite-git' package from the AUR;"
+	echo "this will make enabling and disabling sites significantly easier."
 }

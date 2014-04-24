@@ -10,7 +10,7 @@
 
 if [ ${server_type} == "nginx" ]; then
 	$SERVER_CONF_DIR="/etc/nginx"
-	$SERVER_VHOST_CONF_DIR="/etc/nginx/vhosts-available"
+	$SERVER_VHOST_CONF_DIR="/etc/nginx/sites-available"
 #elif [ ${server_type} == "apache" ]; then
 #	$SERVER_CONF_DIR="/etc/httpd/conf"
 #	$SERVER_VHOST_CONF_DIR="/etc/httpd/conf/vhosts-available"
