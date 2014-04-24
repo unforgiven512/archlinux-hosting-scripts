@@ -81,3 +81,8 @@ install_arch_packages() {
 create_php_configs() {
 	sed -i 's/\;include=\/etc\/php\/fpm\.d\/\*\.conf/include=\/etc\/php\/fpm\.d\/\*\.conf/' /etc/php/php-fpm.conf
 }
+
+display_help() {
+	echo -e "033[1mHELP:\033[0m"
+	echo -e "033[1m--initial-setup   - Setup your system for web hosting (first run)\033[0m"
+}
