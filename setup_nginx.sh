@@ -73,3 +73,11 @@ echo_post_install_info() { ## provide the user with some useful info/tips
 	echo "It is recommended to install the 'nginx_ensite-git' package from the AUR;"
 	echo "this will make enabling and disabling sites significantly easier."
 }
+
+install_arch_packages() {
+	pacman -S nginx php php-fpm mariadb
+}
+
+create_php_configs() {
+	sed -i 's/\;include=\/etc\/php\/fpm\.d\/\*\.conf/include=\/etc\/php\/fpm\.d\/\*\.conf/' /etc/php/php-fpm.conf
+}
