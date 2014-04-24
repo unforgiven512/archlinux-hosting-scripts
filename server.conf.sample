@@ -13,4 +13,10 @@
 # nginx
 # (apache)
 # (lighttpd)
-server_type=nginx
+nServerType="nginx"
+
+## Hostname
+# Please set this to the default hostname of your server.
+# It is recommended to set it to the same hostname that is assigned to your server (ie: `cat /etc/hostname`)
+# Your '/etc/hostname' should contain both the host and domain parts (ie: "my.domain.tld")
+nServerHostname=`cat /etc/hostname`
