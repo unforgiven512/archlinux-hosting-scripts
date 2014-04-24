@@ -12,7 +12,7 @@ get_cpu_count() { ## function to get CPU count, and add 1
 build_nginx_conf() { ## function to build nginx.conf
 	#sed -i 's/^worker_processes.*/worker_processes '$cpuCount'\;/' /etc/nginx/nginx.conf
 
-cat >> "/etc/nginx/nginx.conf" < EOF
+cat > "/etc/nginx/nginx.conf" << EOF
 worker_processes $cpuCount;
 
 events {
@@ -36,7 +36,7 @@ EOF
 }
 
 create_default_site() { ## function to create a default virtual host, and link it to the enabled folder
-cat >> /etc/nginx/sites-available/default < EOF
+cat > /etc/nginx/sites-available/default << EOF
 server {
   listen 80 default_server;
 
