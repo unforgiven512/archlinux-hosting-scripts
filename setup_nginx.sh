@@ -38,17 +38,26 @@ EOF
 create_default_vhost() { ## function to create a default virtual host, and link it to the enabled folder
 cat >> /etc/nginx/vhosts-available/default < EOF
 server {
-  listen 80;
+  listen 80 default_server;
+
+  # comment your actual hostname, and uncomment the following line to
+  # cause nginx to only respond to requests to domain names it knows
   server_name ${nServerHostname};
+  #server_name _;
 
   root /usr/share/nginx/html;
   index index.html index.htm;
+
+  access_log /var/log/nginx/access-default.log;
+  error_log  /var/log/nginx/error-default.log;
 
   location / {
     try_files \$uri \$uri/ /index.html;
   }
 }
 EOF
+
+ln -s /etc/nginx/vhosts-available/default /etc/nginx/vhosts-enabled/000-default
 }
 
 create_folder_structure() { ## function to create folder structure for nginx-based hosting
