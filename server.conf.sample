@@ -13,10 +13,16 @@
 # nginx
 # (apache)
 # (lighttpd)
-nServerType="nginx"
+nHttpdType="nginx"
 
 ## Hostname
 # Please set this to the default hostname of your server.
 # It is recommended to set it to the same hostname that is assigned to your server (ie: `cat /etc/hostname`)
 # Your '/etc/hostname' should contain both the host and domain parts (ie: "my.domain.tld")
 nServerHostname=`cat /etc/hostname`
+
+## Timezone
+# Please enter your server's timezone here, from this list:
+# http://us3.php.net/manual/en/timezones.php
+#
+nServerTimezone="America/New_York"

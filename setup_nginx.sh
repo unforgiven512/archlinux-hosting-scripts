@@ -1,7 +1,11 @@
 #!/bin/bash
 
+## variables from server.conf all start with "n" (ie: $nServerTimezone)
+source server.conf
+## constants from server.defs all start with "d" (ie: $dHttpdConfDir)
 source server.defs
 
+############################################################################
 
 get_cpu_count() { ## function to get CPU count, and add 1
 	declare -i cpuCount
@@ -80,6 +84,7 @@ install_arch_packages() {
 
 create_php_configs() {
 	sed -i 's/\;include=\/etc\/php\/fpm\.d\/\*\.conf/include=\/etc\/php\/fpm\.d\/\*\.conf/' /etc/php/php-fpm.conf
+	sed -i 's@;date\.timezone.*@date\.timezone = '"$nServerTimezone"'@' /etc/php/php.ini	
 }
 
 display_help() {

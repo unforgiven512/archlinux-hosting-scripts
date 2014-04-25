@@ -8,12 +8,12 @@
 #       spectacular way.
 ###
 
-if [ ${server_type} == "nginx" ]; then
-	$SERVER_CONF_DIR="/etc/nginx"
-	$SERVER_VHOST_CONF_DIR="/etc/nginx/sites-available"
-#elif [ ${server_type} == "apache" ]; then
-#	$SERVER_CONF_DIR="/etc/httpd/conf"
-#	$SERVER_VHOST_CONF_DIR="/etc/httpd/conf/vhosts-available"
-#elif [ ${server_type} == "lighttpd" ]; then
+if [ ${nHttpdType} == "nginx" ]; then
+	$dHttpdConfDir="/etc/nginx"
+	$dHttpdVhostDir="/etc/nginx/sites-available"
+#elif [ ${nHttpdType} == "apache" ]; then
+#	$dHttpdConfDir="/etc/httpd/conf"
+#	$dHttpdVhostDir="/etc/httpd/conf/vhosts-available"
+#elif [ ${nHttpdType} == "lighttpd" ]; then
 #	STUFF
 fi
