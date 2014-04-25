@@ -83,8 +83,15 @@ install_arch_packages() {
 }
 
 create_php_configs() {
+	### PHP-FPM ###
+	## include *.conf files in /etc/php/fpm.d/, which will be necessary for user confs ##
 	sed -i 's/\;include=\/etc\/php\/fpm\.d\/\*\.conf/include=\/etc\/php\/fpm\.d\/\*\.conf/' /etc/php/php-fpm.conf
+
+	### PHP.INI ###
+	## set our timezone in php.ini ##
 	sed -i 's@;date\.timezone.*@date\.timezone = '"$nServerTimezone"'@' /etc/php/php.ini	
+	## enable mysqli extension ##
+	sed -i 's/;extension=mysqli.so/extension=mysqli.so/' /etc/php/php.ini
 }
 
 display_help() {
