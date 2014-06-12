@@ -1,0 +1,25 @@
+/
+|
++srv/
+|   +http/
+|        +${username1}/
+|        |            +logs/
+|        |            |    +nginx/
+|        |            |    |     +${domain1}/
+|        |            |    |     |          +access.log
+|        |            |    |     |          +error.log
+|        |            |    |     +${domain2}/
+|        |            |    |                +access.log
+|        |            |    |                +error.log
+|        |            |    +php/
+|        |            |        +access.log
+|        |            |        +error.log
+|        |            |        +slow.log
+|        |            +domains/
+|        |                    +${domain1}/
+|        |                    |          +(index.php)
+|        |                    |          +(...)
+|        |                    | 
+|        |                    +${domain2}/
+|        |                               +(index.php)
+|        |                               +(...)
