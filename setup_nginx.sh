@@ -79,7 +79,7 @@ echo_post_install_info() { ## provide the user with some useful info/tips
 }
 
 install_arch_packages() {
-	pacman -S nginx php php-fpm mariadb
+	pacman -S nginx php php-fpm mariadb php-gd php-intl php-xcache
 }
 
 create_php_configs() {
@@ -92,6 +92,10 @@ create_php_configs() {
 	sed -i 's@;date\.timezone.*@date\.timezone = '"$nServerTimezone"'@' /etc/php/php.ini	
 	## enable mysqli extension ##
 	sed -i 's/;extension=mysqli.so/extension=mysqli.so/' /etc/php/php.ini
+	sed -i 's/;extension=gd.so/extension=gd.so/' /etc/php/php.ini
+	sed -i 's/;extension=intl.so/extension=intl.so/' /etc/php/php.ini
+	let lineNo=`grep -rne 'tidy\.so' /etc/php/php.ini | cut -d: -f1`+1
+	sed -i "$lineNo"'i''extension=xcache\.so' /etc/php/php.ini
 }
 
 display_help() {
