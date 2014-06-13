@@ -23,6 +23,17 @@ createHostedDomain() {
 	systemctl restart ${server_unit}
 }
 
+createRedirectDomain() {
+if [ "${dHttpdType}" == "nginx" ]; then
+cat > "${dHttpdVhostDir}/${sFromDomain}" << EOF
+## REDIRECT TO BARE DOMAIN ##
+server {
+  server_name ${sFromDomain};
+  rewrite ^ '$scheme'://${sToDomain}'$request_uri' redirect;
+}
+EOF
+}
+
 ## main loop / gather arguments ##
 while test $# -gt 0; do
 	case "$1" in
