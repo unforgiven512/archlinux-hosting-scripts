@@ -36,6 +36,12 @@ server {
 EOF
 }
 
+enableSSLForDomain() {
+if [ $verbose ]; then
+	echo "VERBOSE: enabling SSL for ${sDomainName}"
+fi
+}
+
 ## main loop / gather arguments ##
 while test $# -gt 0; do
 	case "$1" in
@@ -59,6 +65,40 @@ while test $# -gt 0; do
 				export sDomainName="$1"
 			else
 				echo -e "\033[31mERROR: no domain name specified\033[0m"
+				exit 1
+			fi
+			shift
+			;;
+		-s|--ssl)
+			export sEnableSSL="true"
+			shift
+			;;
+		-c|--crtfile)
+			shift
+			if test $# -gt 0; then
+				export sSSLCertFile="$1"
+			else
+				echo -e "\033[31;1mERROR:\033[0m \033[31mno SSL certificate file specified\033[0m"
+				exit 1
+			fi
+			shift
+			;;
+		-k|--keyfile)
+			shift
+			if test $# -gt 0; then
+				export sSSLKeyFile="$1"
+			else
+				echo -e "\033[31;1mERROR:\033[0m \033[31mno SSL key file specified\033[0m"
+				exit 1
+			fi
+			shift
+			;;
+		-p|--private-keyfile)
+			shift
+			if test $# -gt 0; then
+				export sSSLPrivateKeyFile="$1"
+			else
+				echo -e "\033[31;1mERROR:\033[0m \033[31mno SSL private (encrypted) key file specified\033[0m"
 				exit 1
 			fi
 			shift
