@@ -17,7 +17,9 @@ createHostedDomain() {
 	EOF
 
 	# create directory in user's /srv/http/${username}/ (aka ~/public_html) directory
-	mkdir -p /srv/http/${sUsername}/${vhost_hostname}
+	mkdir -p /srv/http/${sUsername}/domains/${vhost_hostname}
+	chown ${sUsername}:http /srv/http/${sUsername}/domains/${vhost_hostname}
+	chmod 0775 /srv/http/${sUsername}/domains/${vhost_hostname}
 
 	# reload server configuration
 	systemctl restart ${server_unit}
