@@ -1,0 +1,17 @@
+[Match]
+Name=${ifname}
+
+[Network]
+Address=${static_ip}/${prefix_length}
+#Address=${another_static_ip}/${another_prefix_length}
+Gateway=${gateway_ip}
+Address=${static_ip6}/${prefix6_length}
+DNS=${primary_dns_ip}
+DNS=${secondary_dns_ip}
+#DNS=${another_dns_ip}
+NTP=${ntp_server}
+# Google NTP servers
+#NTP=time1.google.com
+#NTP=time2.google.com
+#NTP=time3.google.com
+#NTP=time4.google.com
