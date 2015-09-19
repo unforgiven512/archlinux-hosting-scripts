@@ -25,5 +25,13 @@ Please note that some sections _may_ have sub-sections.
   * *DEFAULT*: Y
 * `AHS_PACMAN_USE_COLOR` - this parameter will cause _pacman_ to use colorized output when run interactively in a capable terminal
   * *DEFAULT*: Y
+* `AHS_PACMAN_USE_TOTALDOWNLOAD` - this parameter will cause _pacman_ to display, when downloading, the amount downloaded, download rate, ETA, and completed percentage of the entire download list, rather than the percent of each individual download target (package); the progress bar will still reflect the progress of each, individual package.
+  * *DEFAULT*: N
+* `AHS_PACMAN_CHECKSPACE_DISABLE` - *NOTE:* _It is not recommended to disable this option._ When enabled, _pacman_ will perform an approximate check for adequate available disk space before installing packages.
+  * *DEFAULT*: N
 * `AHS_PACMAN_SHARED_CACHE_PRESENT` - this parameter provides the scripts knowledge of whether a shared _pacman_ cache is in use, which changes the state of some configuration options to better handle that scenario
+  * *DEFAULT*: N
+* `AHS_PACMAN_REPO_MULTILIB_ENABLED` - if you don't think you'll ever need 32-bit support, you can go ahead and disable the _multilib_ repository by changing this to "N"
+  * *DEFAULT*: Y
+* `AHS_PACMAN_REPO_TESTING_ENABLED` - if you're feeling lucky, and want to test package(s) before they hit the main repos, go ahead and enable the _testing_ repo by changing this to "Y"
   * *DEFAULT*: N
