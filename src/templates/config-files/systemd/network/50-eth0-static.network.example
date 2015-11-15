@@ -1,0 +1,24 @@
+[Match]
+# We'll apply this config to eth0
+Name=eth0
+
+[Network]
+# Configure our primary, public IPv4 address
+Address=76.23.35.223/24
+# Configure a secondary, public IPv4 address
+Address=157.139.103.44/24
+# Configure a private IPv4 address
+Address=192.168.111.149/17
+# Set our default gateway (route)
+Gateway=76.23.35.1
+# Set a couple IPv6 addresses
+Address=2600:beef::f03c:91ff:fe6e:5b14/64
+Address=2600:beef:e001:28d3::7/56
+# Use Google DNS servers...
+DNS=8.8.8.8
+DNS=8.8.4.4
+# ...and Google's NTP servers
+NTP=time1.google.com
+NTP=time2.google.com
+NTP=time3.google.com
+NTP=time4.google.com
